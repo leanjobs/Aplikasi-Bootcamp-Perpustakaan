@@ -42,7 +42,7 @@
   @include('partials.index.sidebar_admin')
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
-    @include('partials.index.navbar')
+    @include('partials.index.navbar_admin')
     <!-- End Navbar -->
     @yield('main_index')
   </main>

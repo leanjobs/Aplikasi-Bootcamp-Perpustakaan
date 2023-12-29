@@ -40,8 +40,10 @@ Route::prefix('admin')->middleware('auth')->group(function (){
     Route::delete('/akun/{id}', [LibraryController::class, 'delete_akun'])->name('akun.delete');
     Route::post('/akun', [LibraryController::class, 'create_akun'])->name('akun.create');
     Route::put('/akun/{id}', [LibraryController::class, 'edit_akun'])->name('akun.edit');
+
 });
 
 Route::prefix('siswa')->middleware('auth:siswa')->group(function (){
     Route::get('/dashboard', [LibraryController::class, 'index_siswa'])->name('dashboard_siswa');
+    
 });
