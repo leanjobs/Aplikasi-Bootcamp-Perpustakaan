@@ -49,19 +49,30 @@ class LibraryController extends Controller
     }
 
     public function create_buku(Request $request){
+
+        // return $request->file('image')->store('cover-images');
+
         $datas = $request->validate([
+            'image' => 'image|mimes:jpeg,jpg,png|max:2048',
             'judul' => 'required|string',
             'penerbit' => 'required|string',
             'pengarang' => 'required|string',
             'stok_buku' => 'required|string',
         ]);
 
-        Buku::create($datas);
+        if($request->file('image')){
+            $datas['image'] = $request->file('image')->store('cover-images');
+        };
+
+
+
+        $datas = Buku::create($datas);
         return redirect()->route('dashboard_admin')->with('success', 'buku berhasil ditambahkan');
     }
 
     public function edit_buku(Request $request, $id){
         $datas = $request->validate([
+           
             'judul' => 'required|string',
             'penerbit' => 'required|string',
             'pengarang' => 'required|string',

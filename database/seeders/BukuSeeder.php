@@ -15,6 +15,7 @@ class BukuSeeder extends Seeder
     {
         $data = [ 
             [ 
+                'image' => "",
                 'judul' => 'Belajar Laravel', 
                 'penerbit' => 'SMKS Taruna Bhakti', 
                 'pengarang' => 'Bu Miranda', 
@@ -23,6 +24,7 @@ class BukuSeeder extends Seeder
  
         foreach ($data as $val) { 
             Buku::insert([ 
+                'image' => $val['image'], 
                 'judul' => $val['judul'], 
                 'penerbit' => $val['penerbit'], 
                 'pengarang' => $val['pengarang'],

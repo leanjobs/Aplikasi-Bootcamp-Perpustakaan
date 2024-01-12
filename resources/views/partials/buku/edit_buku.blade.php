@@ -15,6 +15,12 @@
             <input type="hidden" id="editBookId" value="{{ $buku->id }}"> 
             <div class="modal-body container-fluid"> 
                 <div class="mb-3"> 
+                    <!-- <label for="image" class="form-label">Gambar</label> 
+                    <input autocomplete="off" type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') }}"> 
+                    @error('image') 
+                        <div class="invalid-feedback">{{ $message }}</div> 
+                    @enderror -->
+
                     <label for="judul" class="form-label">Judul Buku</label> 
                     <input autocomplete="off" type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" name="judul" value="{{ old('judul', $buku->judul) }}"> 
                     @error('judul') 

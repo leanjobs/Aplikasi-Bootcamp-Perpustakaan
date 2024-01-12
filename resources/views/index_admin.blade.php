@@ -16,9 +16,12 @@
                   </div>
                   <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
+                      <!-- <form action="{{route('dashboard_admin')}}" method="post" enctype="multipart/form-data">
+                      @csrf -->
                       <table class="table align-items-center mb-0">
                         <thead>
                           <tr>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gambar</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Judul Buku</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Penerbit</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Penulis</th>
@@ -29,6 +32,13 @@
                         <tbody>
                           @foreach ($bukus as $buku)
                           <tr>
+                            <td>
+                                @if($buku->image)
+                                <img src="{{ asset('storage/' .$buku->image ) }}" alt="" class="rounded mb-0 ps-3" style="width: 150px;">
+                                @else
+                                <img src="https://pngtree.com/freepng/no-image-vector-illustration-isolated_4979075.html" alt="" class="rounded" style="width: 150px;">
+                                @endif
+                            </td>
                             <td>
                                 <p class="text-xs text-secondary mb-0 ps-3">{{ $buku->judul }}</p>
                             </td>
@@ -57,6 +67,8 @@
                           @endforeach
                         </tbody>
                       </table>
+                      <!-- </form> -->
+                      
                     </div>
                   </div>
                 </div>
